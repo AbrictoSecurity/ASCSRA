@@ -1,0 +1,276 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><title>Abricto Security %%INTERVAL%% CSRA Report</title><style type="text/css" media="all">
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-text-size-adjust: none;
+}
+
+html, body {
+  font-family: 'Helvetica Neue', 'Segoe UI', helvetica, arial, sans-serif;
+  width: 100%;
+  color: #333;
+  font-size: 13px;
+  background: #efefef;
+}
+
+a, a:visited, a:active {
+  color: #0071b9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0071b9;
+  text-decoration: underline;
+}
+
+.clear {
+  clear: both;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.plugin-row-header {
+  height: 35px;
+  line-height: 35px;
+  background: #f5f5f5;
+  font-size: 12px;
+  border: 1px solid #ddd;
+}
+
+.plugin-row {
+  height: 40px;
+  border: 1px solid #ddd;
+}
+
+.plugin-row td {
+  padding: 10px 0;
+  line-height: 20px;
+}
+
+.table-wrapper.details,
+.table-wrapper.see-also {
+  margin: 0 0 20px 0;
+}
+
+.table-wrapper.details > table > tbody > tr > td {
+  padding: 5px 0;
+}
+
+.button {
+  display: block;
+  float: left;
+  line-height: 30px;
+  background: #eee;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0 15px;
+}
+
+.button:hover {
+  background: #ccc;
+}
+
+.expand {
+  display: block;
+  float:right;
+  font-size: 12px;
+  color: #0071b9;
+  cursor: pointer;
+  font-weight: normal;
+  line-height: 20px;
+  margin: 0 0 0 10px;
+}
+
+.expand:hover {
+  text-decoration: underline;
+}
+
+.expand-spacer {
+  display: block;
+  float:right;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  margin: 0 0 0 10px;
+}
+
+.details-header {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 0 5px 0;
+  margin: 0 0 5px 0;
+  border-bottom: 1px dotted #ccc;
+}
+
+.offline {
+  background-image: -webkit-repeating-linear-gradient(135deg, transparent, transparent 5px, rgba(255, 255, 255, .2) 5px, rgba(255, 255, 255, .2) 10px) !important;
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 5px, rgba(255, 255, 255, .2) 5px, rgba(255, 255, 255, .2) 10px) !important;
+}
+
+.acas-header {
+  padding: 0 10px;
+}
+
+.acas-header,
+.acas-footer > h1 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+</style><script type="text/javascript">
+var toggle = function (id) {
+  var div = document.getElementById(id);
+  var button = document.getElementById(id + '-show');
+
+  if (!div || !button) {
+    return;
+  }
+
+  if (div.style.display === '' || div.style.display === 'block') {
+    button.style.display = 'block';
+    div.style.display = 'none';
+    adjustWatermark();
+    return;
+  }
+
+  button.style.display = 'none';
+  div.style.display = 'block';
+
+  adjustWatermark();
+};
+
+var toggleAll = function (hide) {
+  if (document.querySelectorAll('div.section-wrapper').length) {
+    toggleAllSection(hide);
+    adjustWatermark();
+    return;
+  }
+
+  var divs = document.querySelectorAll('div.table-wrapper');
+
+  for (var i = 0, il = divs.length; i < il; i++) {
+    var id = divs[i].getAttribute('id');
+    var div = document.getElementById(id);
+    var button = document.getElementById(id + '-show');
+
+    if (div && button) {
+      if (hide) {
+        button.style.display = 'block';
+        div.style.display = 'none';
+        adjustWatermark();
+        continue;
+      }
+
+      button.style.display = 'none';
+      div.style.display = 'block';
+    }
+  }
+  adjustWatermark();
+};
+
+var toggleSection = function (id) {
+  var div = document.getElementById(id);
+  var toggleText = document.getElementById(id.split('-')[0] + '-toggletext');
+
+  if (!div) {
+    return;
+  }
+
+  if (div.style.display !== 'none') {
+    toggleText.innerText = '+';
+    div.style.display = 'none';
+    adjustWatermark();
+    return;
+  }
+
+  toggleText.innerText = '-';
+  div.style.display = 'block';
+
+  adjustWatermark();
+};
+
+var toggleAllSection = function (hide) {
+  var divs = document.querySelectorAll('div.section-wrapper');
+
+  for (var i = 0, il = divs.length; i < il; i++) {
+    var id = divs[i].getAttribute('id');
+    var div = document.getElementById(id);
+    var toggleText = document.getElementById(id.split('-')[0] + '-toggletext');
+
+    if (div) {
+      if (hide) {
+        toggleText.innerText = '+';
+        div.style.display = 'none';
+        continue;
+      }
+
+      toggleText.innerText = '-';
+      div.style.display = 'block';
+    }
+  }
+  adjustWatermark();
+};
+
+var adjustWatermark = function () {
+  if (document.getElementById('abrictosecurity-watermark')) {
+    let el = document.getElementById('abrictosecurity-watermark');
+    let body = document.body;
+    let html = document.documentElement;
+    let height = Math.max( body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight );
+      el.setAttribute('height', body.offsetHeight);
+    }
+  };
+  </script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:LastModifiedDateTime_Client msdt:dt="string">2020-07-30T05:32:13Z</mso:LastModifiedDateTime_Client>
+<mso:CreatedDateTime_Client msdt:dt="string">2020-07-30T05:32:13Z</mso:CreatedDateTime_Client>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body onload="toggleAll(true)">
+  <div id="report" style="width: 1024px; box-sizing: border-box; margin: 0 auto; background: #fff; padding: 0 20px 20px 20px; border-top: #263746 solid 3px; box-shadow: 0 2px 10px rgba(0, 0, 0, .2); margin-bottom: 20px; border-radius: 0 0 3px 3px;">
+    <header style="width: 100%; border-bottom: 1px dotted #ccc; padding: 20px 0; margin: 0 0 20px 0;">
+      <div style="float: left;">
+        <h1>
+          <img src="https://abricto-static.s3.amazonaws.com/AbrictoSecurityVerticalBlackNotCropped.png" height="100" border="0" alt="Abricto Security Logo" style="display: block;"></img>
+        </h1>
+      </div>
+      <div style="float: right;">
+        <h1 style="font-size: 18px;">Abricto Security</h1>
+        <h2 style="color: #999; text-align: right">Cloud Security Posture Management</h2>
+      </div>
+      <div class="clear"></div>
+    </header>
+    <div class="clear"></div>
+    <h3 style="font-size: 24px; font-weight: 100;">%%INTERVAL%% CSRA Alerts and Remediation Report</h3>
+    <h4 style="color: #999; border-bottom: 1px dotted #ccc; padding: 0 0 20px 0; margin: 0 0 20px 0;">%%DATE%%</h4>
+    <div class="clear"></div>
+    <div style="width: 100%;">
+      <h5 xmlns="" style="font-size: 16px; font-weight: bold; margin-bottom: 20px;">TABLE OF CONTENTS</h5>
+      <ul xmlns="" style="list-style-type: none; margin-bottom: 20px;">
+        <li style="font-size: 14px;">
+          <p style="font-weight: bold;">Alerts Triggered</p>
+          <ul style="list-style-type: disc; margin: 10px 0 0 20px;">
+            %%ALERTSTOC%%
+          </ul>
+          <br>
+        </li>
+      </ul>
+    </div>

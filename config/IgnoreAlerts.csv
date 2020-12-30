@@ -1,0 +1,5 @@
+S3,S3 Bucket Encryption In Transit,arn:aws:s3:::blagger-test
+IAM,Access Keys Rotated
+EC2,EBS Encrypted Snapshots
+IAM,Access Keys Last Used
+S3,S3 Bucket Logging

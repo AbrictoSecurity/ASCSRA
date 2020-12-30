@@ -1,0 +1,56 @@
+version: '2'
+
+services:
+  mysql:
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    restart: always
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+      MYSQL_DATABASE: csra
+      MYSQL_USER: csra
+      MYSQL_PASSWORD: csra
+    networks: [csra]
+  api:
+    ports:
+       - "5000:5000"
+    build: ./api
+    volumes:
+      - ./reports:/flask/reports
+    restart: always
+    environment:
+      MYSQL_HOSTNAME: mysql
+      MYSQL_DATABASE: csra
+      MYSQL_USER: csra
+      MYSQL_PASSWORD: csra
+      AWS_ACCESS_KEY_ID: AKIASPKY6DAIVOAWO5EV
+      AWS_SECRET_ACCESS_KEY: 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
+    networks: [csra]
+    depends_on:
+      - mysql
+  csra:
+    build: ./csra
+    volumes:
+      - ./config:/ASCSRA/config
+    restart: always
+    environment:
+      MYSQL_HOSTNAME: mysql
+      MYSQL_DATABASE: csra
+      MYSQL_USER: csra
+      MYSQL_PASSWORD: csra
+      AWS_ACCESS_KEY_ID: AKIASPKY6DAIVOAWO5EV
+      AWS_SECRET_ACCESS_KEY: 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
+      CLIENT: Acme
+      FROM_EMAIL: info@abrictosecurity.com
+      TO_EMAIL: cornel.dupreez@abrictosecurity.com
+      PRIMARY_REGION: us-east-1
+    networks: [csra]
+    depends_on:
+      - mysql
+networks:
+  csra:
+    driver: bridge

@@ -1,0 +1,12 @@
+CREATE TABLE `scanResultsTemplate` (
+
+  category VARCHAR(250) NOT NULL,
+  title VARCHAR(250) NOT NULL,
+  resource VARCHAR(250) NOT NULL,
+  region VARCHAR(100) NOT NULL,
+  statusWord VARCHAR(100) NOT NULL,
+  message VARCHAR(250) NOT NULL,
+  id VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

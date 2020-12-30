@@ -1,0 +1,54 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "athena:GetWorkGroup",
+                "ses:DescribeActiveReceiptRuleSet",
+                "logs:DescribeLogGroups",
+                "xray:GetEncryptionConfig",
+                "logs:DescribeMetricFilters",
+                "support:DescribeTrustedAdvisorChecks",
+                "elastictranscoder:ListPipelines",
+                "elasticfilesystem:DescribeFileSystems",
+                "servicequotas:ListServiceQuotas"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "ses:SendEmail",
+            "Resource": "arn:aws:ses:*:*:*"
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": "ses:SendEmail",
+            "Resource": "arn:aws:ses:*:*:*"
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": [
+                "ses:SendEmail",
+                "ses:SendRawEmail"
+            ],
+            "Resource": "arn:aws:ses:*:*:*"
+        },
+        {
+            "Sid": "VisualEditor4",
+            "Effect": "Allow",
+            "Action": "ses:SendRawEmail",
+            "Resource": "arn:aws:ses:*:*:*"
+        },
+        {
+            "Sid": "VisualEditor5",
+            "Effect": "Allow",
+            "Action": "ses:SendRawEmail",
+            "Resource": "arn:aws:ses:*:*:*"
+        }
+    ]
+}
