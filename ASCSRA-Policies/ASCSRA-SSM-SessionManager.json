@@ -8,7 +8,7 @@
             ],
             "Resource": [
                 "arn:aws:ec2:*:*:instance/%%%instance-id%%%",
-                "arn:aws:ssm:%%%region:account-id%%%:document/SSM-SessionManagerRunShell"
+                "arn:aws:ssm:*:document/SSM-SessionManagerRunShell"
             ]
         },
         {
@@ -36,7 +36,7 @@
             "Action": [
                 "kms:GenerateDataKey"
             ],
-            "Resource": "%%%key-name%%%"
+            "Resource": "*"
         }
     ]
 }

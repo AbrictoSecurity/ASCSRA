@@ -27,8 +27,8 @@ services:
       MYSQL_DATABASE: csra
       MYSQL_USER: csra
       MYSQL_PASSWORD: csra
-      AWS_ACCESS_KEY_ID: AKIASPKY6DAIVOAWO5EV
-      AWS_SECRET_ACCESS_KEY: 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
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
     networks: [csra]
     depends_on:
       - mysql
@@ -42,11 +42,11 @@ services:
       MYSQL_DATABASE: csra
       MYSQL_USER: csra
       MYSQL_PASSWORD: csra
-      AWS_ACCESS_KEY_ID: AKIASPKY6DAIVOAWO5EV
-      AWS_SECRET_ACCESS_KEY: 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
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
       CLIENT: Acme
-      FROM_EMAIL: info@abrictosecurity.com
-      TO_EMAIL: cornel.dupreez@abrictosecurity.com
+      FROM_EMAIL:
+      TO_EMAIL: 
       PRIMARY_REGION: us-east-1
     networks: [csra]
     depends_on:
