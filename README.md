@@ -2,11 +2,11 @@
 
 # Abricto Security Cloud Security Reporting and Automation (ASCSRA)
 
-ASCSRA allows organizations to monitor their AWS cloud environment in near real-time for security vulnerabilities or misconfigurations. When a new vulnerability gets detected, an email alert instantly gets sent out . A nightly report is also emailed out which highlights and details all the alerts within the past 24 hours.
+ASCSRA allows organizations to monitor their AWS cloud environment in near real-time for security vulnerabilities or misconfigurations. When a new vulnerability gets detected, an email alert instantly gets sent out . A nightly report also gets emailed out which highlights and details all the alerts within the past 24 hours.
 
-By default, the AWS environment gets interrogated every 10 minutes. The results of that interrogation are compared against the previous interrogation's results and new security alerts are distributed via email. Noisy alerts can be silenced by modifying the IgnoreAlerts.csv file either by category (e.g. all S3 buckets with missing encryption in-transit), or by resource (e.g. a specific S3 bucket with missing encryption in-transit).
+By default, the AWS environment is interrogated every 10 minutes. The results of that interrogation are compared against the previous interrogation's results and new security alerts are distributed via email. Noisy alerts can be silenced by modifying the IgnoreAlerts.csv file either by category (e.g. all S3 buckets with missing encryption in-transit), or by resource (e.g. a specific S3 bucket with missing encryption in-transit).
 
-This project is only possible because of the [CloudSploit](https://github.com/aquasecurity/cloudsploit) team and its community, and all the hard work they've done.
+This project is only possible because of all the hard work done by the [CloudSploit](https://github.com/aquasecurity/cloudsploit) team and its community.
 
 ## AWS Deployment Guide
 
@@ -38,7 +38,7 @@ This project is only possible because of the [CloudSploit](https://github.com/aq
 1. In SES:
     1. Make sure both the sender and the recipient's email addresses are validated.
 1. Run `aws configure` to specify the region as `us-east-1` or the appropriate region, other fields can be left as "None".
-1. Launch the docker containers with: `docker-compose -f ~/ASCSRA/docker-compose.yml up -d`
+1. Launch the docker containers with: `sudo docker-compose -f ~/ASCSRA/docker-compose.yml up -d`
 
 ## Wishlist (Please, submit pull requests)
 
