@@ -1,5 +1,3 @@
-[![Abricto Security](https://github.com/AbrictoSecurity/ASCSRA/blob/master/img/AbrictoSecurityHorizontalBlackNonTransparent.png)](https://abrictosecurity.com)
-
 # Abricto Security Cloud Security Reporting and Automation (ASCSRA)
 
 ASCSRA allows organizations to monitor their AWS cloud environment in near real-time for security vulnerabilities or misconfigurations. When a new vulnerability gets detected, an email alert instantly gets sent out . A nightly report also gets emailed out which highlights and details all the alerts within the past 24 hours.
@@ -40,7 +38,7 @@ This project is only possible because of all the hard work done by the [CloudSpl
 1. Run `aws configure` to specify the region as `us-east-1` or the appropriate region, other fields can be left as "None".
 1. Launch the docker containers with: `sudo docker-compose -f ~/ASCSRA/docker-compose.yml up -d`
 
-## Wishlist (Please, submit pull requests)
+## Wishlist (please submit pull requests)
 
 1. Upgrade the csra/scans engine to dynamically pull the latest CloudSploit repo on at build time.
     1. This should just be adding a git clone command to the Dockerfile and updating the 000-initdb.sql file to accompany the additional columns.
