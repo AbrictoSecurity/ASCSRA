@@ -1,0 +1,57 @@
+<dashboard theme="dark">
+  <label>Abricto Security Cloud Reporting and Automation</label>
+  <description>Dashboard to visualize real-time data and historical data of cloud security interrogations.</description>
+  <row>
+    <panel>
+      <single>
+        <title>Number of outstanding AWS security alerts</title>
+        <search>
+          <query>| dbxquery query="call TotalCurrentAlerts();" connection="CSRA"</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Latest security alerts</title>
+        <search>
+          <query>| dbxquery query="call LatestSecurityAlerts();" connection="CSRA"</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+          <refresh>1m</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">true</option>
+        <option name="wrap">false</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Alerts triggered in last 7 days</title>
+        <search>
+          <query>| dbxquery query="SELECT TABLE_ROWS as Alerts, CREATE_TIME AS date FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'csra' AND TABLE_NAME LIKE 'CapturedAlerts%' AND CREATE_TIME &gt; NOW() - INTERVAL 1 WEEK;" connection="CSRA"| chart first(Alerts) over date</query>
+          <earliest>$earliest$</earliest>
+          <latest>$latest$</latest>
+          <refresh>1m</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="charting.axisTitleX.visibility">collapsed</option>
+        <option name="charting.axisTitleY.visibility">collapsed</option>
+        <option name="charting.axisY.abbreviation">none</option>
+        <option name="charting.chart">area</option>
+        <option name="charting.drilldown">none</option>
+        <option name="charting.legend.placement">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+</dashboard>
