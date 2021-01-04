@@ -10,8 +10,8 @@ This project is only possible because of all the hard work done by the [CloudSpl
 
 1. In IAM, create the ASCSRA-Default-Policy using the ASCSRA-Policies/ASCSRA-Default-Policy.json file.
 1. Create the ASCSRA user with only programmatic access and attach the policy we just created to it, as well as the "SecurityAudit" policy.
-1. Create a role for our EC2 instance called ASCSRAEC2Role and attach the AWS-managed "AmazonSSMManagedInstanceCore" policy to it.
-1. In EC2, provision a single EC2 Amazon Linux 2 AMI t3.micro instance, attach the ASCSRAEC2Role role to it.
+1. Create a role for our EC2 instance called ASCSRA-EC2 and attach the AWS-managed "AmazonSSMManagedInstanceCore" policy to it.
+1. In EC2, provision a single EC2 Amazon Linux 2 AMI t3.micro instance, attach the ASCSRA-EC2 role to it.
     1. Provision at least 30 GiB of root volume storage.
     1. Enable encryption on the root volume.
     1. Add a "Name" tag and call it ASCSRA.
@@ -38,11 +38,6 @@ This project is only possible because of all the hard work done by the [CloudSpl
 1. Run `aws configure` to specify the region as `us-east-1` or the appropriate region, other fields can be left as "None".
 1. Launch the docker containers with: `sudo docker-compose -f ~/ASCSRA/docker-compose.yml up -d`
 
-## Wishlist (please submit pull requests)
+## Contributing
 
-1. Upgrade the csra/scans engine to dynamically pull the latest CloudSploit repo at build time.
-    1. This should just be adding a git clone command to the Dockerfile and updating the 000-initdb.sql file to accompany the additional columns.
-1. Automate the provisioning of ASCSRA via CloudFormation.
-1. Leverage CloudSploit's --remediate function to auto-remediate vulnerabilities as they get detected.
-1. Leverage CloudWatch to monitor for security alerts in real-time as opposed to our polling interval.
-1. Allow docker to run in non-sudo mode.
+We welcome bug fixes, feature requests and other contributions to the ASCSRA project. Please see our [issues page](https://github.com/AbrictoSecurity/ASCSRA/issues) for active issues.
