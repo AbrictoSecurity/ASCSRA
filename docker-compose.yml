@@ -45,8 +45,8 @@ services:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
       CLIENT: Acme
-      FROM_EMAIL:
-      TO_EMAIL: 
+      FROM_EMAIL: source@acme.com
+      TO_EMAIL: destination@acme.com
       PRIMARY_REGION: us-east-1
     networks: [csra]
     depends_on:
