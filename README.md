@@ -1,4 +1,4 @@
-[![Abricto Security](https://github.com/AbrictoSecurity/CSPM-Remediation-Guides/raw/master/resources/logo.png "Abricto Security")](https://abrictosecurity.com)
+[![Abricto Security](https://abricto-static.s3.amazonaws.com/AbrictoSecurityVerticalBlackNotCropped.png")](https://abrictosecurity.com)
 
 # Abricto Security Cloud Security Reporting and Automation
 
