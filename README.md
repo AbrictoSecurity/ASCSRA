@@ -40,4 +40,4 @@ This project is only possible because of all the hard work done by the [CloudSpl
 
 ## Contributing
 
-We welcome bug fixes, feature requests and other contributions to the ASCSRA project. Please see our [issues page](https://github.com/AbrictoSecurity/ASCSRA/issues) for active issues.
+We welcome bug fixes, feature requests and other contributions to the ASCSRA project. Please see our [issues page](https://github.com/AbrictoSecurity/ASCSRA/issues) for active issues before submitting a pull request.
