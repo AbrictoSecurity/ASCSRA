@@ -40,7 +40,7 @@ This project is only possible because of all the hard work done by the [CloudSpl
 
 ## Wishlist (please submit pull requests)
 
-1. Upgrade the csra/scans engine to dynamically pull the latest CloudSploit repo on at build time.
+1. Upgrade the csra/scans engine to dynamically pull the latest CloudSploit repo at build time.
     1. This should just be adding a git clone command to the Dockerfile and updating the 000-initdb.sql file to accompany the additional columns.
 1. Automate the provisioning of ASCSRA via CloudFormation.
 1. Leverage CloudSploit's --remediate function to auto-remediate vulnerabilities as they get detected.
