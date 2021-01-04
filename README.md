@@ -1,4 +1,4 @@
-[![Abricto Security](https://github.com/AbrictoSecurity/ASCSRA/blob/master/img/AbrictoSecurityVerticalBlackNotCropped.png)](https://abrictosecurity.com)
+[![Abricto Security](https://github.com/AbrictoSecurity/ASCSRA/blob/master/img/AbrictoSecurityHorizontalBlackNonTransparent.png)](https://abrictosecurity.com)
 
 # Abricto Security Cloud Security Reporting and Automation (ASCSRA)
 
@@ -23,10 +23,9 @@ This project is only possible because of the [CloudSploit](https://github.com/aq
 1. Now, create our ASCSRA-Admin user.
     1. Provide only programmatic access.
     1. Attach the ASCSRA-SSM-SessionManager policy directly to this user.
-    1. Create a profile in your ~/.aws/credentials file.
-        1. Optionally, create a config for the profile in ~/.aws/config called ascsra-admin and add the keys in ~/.aws/credentials.
+    1. Create a named profile for your ascsra-admin user: `aws configure --profile ascsra-admin`
         1. Optionally, export your profile in bash: `export AWS_PROFILE=ascsra-admin`
-1. Now, specify your instance ID and connect to the EC2 instance: `aws ssm start-session --target i-0fddebe1ba54d5ac5`
+1. Now, specify your instance ID and connect to the EC2 instance: `aws ssm start-session --target i-0fddebe1ba54d5ac5 --profile ascsra-admin`
 1. Change user to ec2-user: `sudo su ec2-user -l`
 1. Install git and docker: `sudo yum install git docker -y && sudo service docker start && sudo chkconfig docker on && sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/bin/docker-compose && sudo chmod +x /usr/bin/docker-compose`
 1. Pull down ASCSRA: `git clone https://github.com/AbrictoSecurity/ASCSRA.git`
@@ -48,3 +47,4 @@ This project is only possible because of the [CloudSploit](https://github.com/aq
 1. Automate the provisioning of ASCSRA via CloudFormation.
 1. Leverage CloudSploit's --remediate function to auto-remediate vulnerabilities as they get detected.
 1. Leverage CloudWatch to monitor for security alerts in real-time as opposed to our polling interval.
+1. Allow docker to run in non-sudo mode.
