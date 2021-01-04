@@ -1,4 +1,4 @@
-[![Abricto Security]("https://github.com/AbrictoSecurity/ASCSRA/blob/master/img/AbrictoSecurityVerticalBlackNotCropped.png")](https://abrictosecurity.com)
+[![Abricto Security](https://github.com/AbrictoSecurity/ASCSRA/blob/master/img/AbrictoSecurityVerticalBlackNotCropped.png)](https://abrictosecurity.com)
 
 # Abricto Security Cloud Security Reporting and Automation (ASCSRA)
 
@@ -6,7 +6,7 @@ ASCSRA allows organizations to monitor their AWS cloud environment in near real-
 
 By default, the AWS environment gets interrogated every 10 minutes. The results of that interrogation are compared against the previous interrogation's results and new security alerts are distributed via email. Noisy alerts can be silenced by modifying the IgnoreAlerts.csv file either by category (e.g. all S3 buckets with missing encryption in-transit), or by resource (e.g. a specific S3 bucket with missing encryption in-transit).
 
-This project is only possible because of the [CloudSploit]("https://github.com/aquasecurity/cloudsploit") team and its community, and all the hard work they've done.
+This project is only possible because of the [CloudSploit](https://github.com/aquasecurity/cloudsploit) team and its community, and all the hard work they've done.
 
 ## AWS Deployment Guide
 
@@ -47,4 +47,4 @@ This project is only possible because of the [CloudSploit]("https://github.com/a
     1. This should just be adding a git clone command to the Dockerfile and updating the 000-initdb.sql file to accompany the additional columns.
 1. Automate the provisioning of ASCSRA via CloudFormation.
 1. Leverage CloudSploit's --remediate function to auto-remediate vulnerabilities as they get detected.
-1. Leverage CloudWatch to watch for security alerts in real-time as opposed to our polling interval.
+1. Leverage CloudWatch to monitor for security alerts in real-time as opposed to our polling interval.
