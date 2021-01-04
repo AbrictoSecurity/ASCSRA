@@ -207,7 +207,7 @@ def emailalerts(difference, epoch):
         replacedate = 'sed -i "s/%%DATE%%/' + date + '/g" "/tmp/ASCSRA-Email-Alert.json"'
         subprocess.call(replacedate, shell=True)
 
-        rawbody = 'Service: ' + category + '</br>' + 'Alert: ' + message + '</br>' + 'Resource: ' + resource + '</br>' + 'Region: ' + region + '</br>' + 'Recommendation: <a href=https://cloudsploit.com/remediations/aws/' + category.lower() + '/' + title.replace(" ", "-").lower() + '>Click here</a>'
+        rawbody = 'Service: ' + category + '<br>' + 'Alert: ' + message + '<br>' + 'Resource: ' + resource + '<br>' + 'Region: ' + region + '<br>' + 'Recommendation: <a href=https://cloudsploit.com/remediations/aws/' + category.lower() + '/' + title.replace(" ", "-").lower() + '>Click here</a>'
         body = rawbody.replace("/", "\/")
         replacebody = 'sed -i "s/%%BODY%%/' + body + '/g" "/tmp/ASCSRA-Email-Alert.json"'
         subprocess.call(replacebody, shell=True)
